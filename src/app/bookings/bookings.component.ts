@@ -1,27 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { Bookings } from '../mock-bookings';
 import { Booking } from '../booking';
+import { BookingService } from '../booking.service';
 
 @Component({
   selector: 'app-bookings',
   templateUrl: './bookings.component.html',
   styleUrls: ['./bookings.component.css']
 })
-export class BookingsComponent  implements OnInit {
 
-  bookings =  Bookings;
+export class BookingsComponent implements OnInit {
+
+  bookings: Booking[] = [];
 
 
-  constructor(){}
+  constructor(private bookingService: BookingService) { }
 
-  ngOnInit(){
-    console.log(this.bookings);
+  ngOnInit() {
+    this.bookings = this.bookingService.getBooking();
   }
 
 
-  deleteBooking(booking: Booking){
-    let index = Bookings.indexOf(booking);
-    Bookings.splice(index, 1)
+  deleteBooking(booking: Booking): void {
+    this.bookingService.deleteBooking(booking)
   }
-
 }
