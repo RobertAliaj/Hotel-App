@@ -1,10 +1,10 @@
 <div class="list-group " *ngFor="let booking of bookings">
-    <a href="#" class="list-group-item list-group-item-action mb-2" aria-current="true">
+    <div class="list-group-item  mb-2" aria-current="true">
         <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{ booking.name }}</h5>
-            <small>{{ booking.id }}</small>
+            <a class="mb-1 h5 text-decoration-none link-primary" routerLink="/edit/{{ booking.id }}">{{ booking.name }}</a>
+            <button (click)="deleteBooking(booking)" type="button" class="btn btn-sm btn-danger">x</button>
         </div>
         <p class="mb-1">{{booking.startDate | date: 'dd/MM/yy'}} - {{booking.endDate | date: 'dd/MM/yy'}}</p>
         <small>Room: {{ booking.roomNumber }}</small>
-    </a>
+    </div>
 </div>

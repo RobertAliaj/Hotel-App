@@ -6,25 +6,25 @@
         <form>
 
             <div class="row mb-2">
+                <!-- Id -->
                 <div class="col">
-                    <!-- Id -->
                     <label class="form-label">Id</label>
-                    <input class="form-control" type="text">
+                    <input type="number" [(ngModel)]="booking.id" name="id" class="form-control">
                 </div>
         
+                <!-- Roomnumber -->
                 <div class="col">
-                    <!-- Roomnumber -->
                     <label class="form-label">Room Number</label>
-                    <input class="form-control" type="text">
+                    <input type="number" [(ngModel)]="booking.roomNumber" name="roomNumber" class="form-control">
         
                 </div>
             </div>
         
             <div class="row mb-2">
+                <!-- name -->
                 <div class="col-6">
-                    <!-- name -->
                     <label class="form-label">Guest Name</label>
-                    <input class="form-control" type="text">
+                    <input type="text" [(ngModel)]="booking.name" name="name" class="form-control">
         
                 </div>
             </div>
@@ -32,23 +32,23 @@
             <div class="row mb-2">
         
         
+                <!-- StartDate -->
                 <div class="col">
                     <label class="form-label">Start Date</label>
-                    <input class="form-control" type="text">
-                    <!-- StartDate -->
+                    <input type="date" [value]="booking.startDate | date: 'yyyy-MM-dd'" (input)="dateChanged($event, true)" class="form-control">
                </div>
         
+               <!-- EndDate -->
                 <div class="col">
                     <label class="form-label">End Date</label>
-                    <input class="form-control" type="text">
-                    <!-- EndDate -->
+                    <input type="date" [value]="booking.endDate | date: 'yyyy-MM-dd'" (input)="dateChanged($event, false)" class="form-control">
                 </div>
         
             </div>
         </form>
     </div>
     <div class="card-footer">
-        <button class="btn btn-primary">Submit</button>
+        <button (click)="save()" class="btn btn-primary">Submit</button>
     </div>
 </div>
 
