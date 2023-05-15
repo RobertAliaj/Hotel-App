@@ -12,15 +12,17 @@ export class BookingsComponent implements OnInit {
 
   bookings: Booking[] = [];
 
-
   constructor(private bookingService: BookingService) { }
 
   ngOnInit() {
-    this.bookings = this.bookingService.getBooking();
+    this.bookingService.getBookings().subscribe((result) => {
+      this.bookings = result;
+    });
   }
 
 
   deleteBooking(booking: Booking): void {
-    this.bookingService.deleteBooking(booking)
+    this.bookingService.deleteBooking(booking).subscribe();
+    this.bookings = this.bookings.filter(b => b != booking);
   }
 }

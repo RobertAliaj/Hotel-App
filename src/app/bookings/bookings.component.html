@@ -1,8 +1,8 @@
-<div class="list-group " *ngFor="let booking of bookings">
-    <div class="list-group-item  mb-2" aria-current="true">
+<div class="list-group" *ngFor="let booking of bookings">
+    <div class="list-group-item mb-2 border-0 bg-dark text-white" style="--bs-bg-opacity: .9;" aria-current="true">
         <div class="d-flex w-100 justify-content-between">
-            <a class="mb-1 h5 text-decoration-none link-primary" routerLink="/edit/{{ booking.id }}">{{ booking.name }}</a>
-            <button (click)="deleteBooking(booking)" type="button" class="btn btn-sm btn-danger">x</button>
+            <a class="mb-1 h5 text-decoration-none link-light hover" routerLink="/edit/{{ booking.id }}">{{ booking.name }}</a>
+            <button (click)="deleteBooking(booking)" type="button" class="btn btn-outline-danger text-white">X</button>
         </div>
         <p class="mb-1">{{booking.startDate | date: 'dd/MM/yy'}} - {{booking.endDate | date: 'dd/MM/yy'}}</p>
         <small>Room: {{ booking.roomNumber }}</small>

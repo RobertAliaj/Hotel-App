@@ -1,0 +1,55 @@
+
+
+
+Ein Observable ist ein Konzept aus der Bibliothek RxJS, die in Angular weit verbreitet ist. 
+Es handelt sich dabei um ein Objekt, das Werte über die Zeit liefert. Diese Werte können alles Mögliche sein,
+ z.B. Serverantworten, Ereignisse oder sogar Fehler.
+
+Ein Observable ist vergleichbar mit einem Stream oder einem Kanal, 
+in den Werte hineingefüllt werden und aus dem du diese Werte entnehmen kannst, wenn sie verfügbar sind.
+
+Um die Werte aus einem Observable zu erhalten, musst du dich darauf "abonnieren". 
+Das bedeutet, dass du eine Funktion bereitstellst, die aufgerufen wird, wenn das Observable einen neuen Wert liefert. Du kannst das mit der subscribe() Methode eines Observables machen.
+
+Hier ist ein Beispiel, wie das in deinem Code aussieht:
+
+this.bookingService.getBooking().subscribe((result) => {
+  this.bookings = result;
+});
+
+
+In diesem Code rufst du die Methode getBooking() auf, die ein Observable zurückgibt. 
+Du abonnierst dich auf dieses Observable mit der subscribe() Methode und übergibst eine Funktion, die aufgerufen wird, wenn das Observable einen Wert liefert.
+
+Die Funktion, die du übergibst, nimmt den gelieferten Wert (in diesem Fall ist das result) und weist ihn der bookings Variable zu.
+Das ist eine grundlegende Nutzung von Observables in Angular. 
+Es gibt noch viele weitere Möglichkeiten, wie du Observables verwenden kannst, z.B. um mehrere Werte über die Zeit zu liefern, 
+Fehler zu behandeln, die Reihenfolge von Operationen zu steuern und vieles mehr. Aber das grundlegende Konzept ist, dass du ein Observable abonnierst, um die Werte zu erhalten, die es liefert.
+
+
+
+
+
+
+
+
+Filter-Methode
+
+ b = ein Element im bookings-array 
+ (b => b != booking) bedeutet jedes element das NICHT gleich mit dem booking-PARAMATER ist wird in das neue Array aufgenommen
+
+ Angenommen, das bookings Array sieht so aus:
+
+ [
+   { id: 1, name: 'Booking A' },
+   { id: 2, name: 'Booking B' },
+   { id: 3, name: 'Booking C' }
+ ]
+
+Und wir rufen deleteBooking() mit dem Objekt { id: 2, name: 'Booking B' } auf.
+
+ Die filter() Methode geht nun durch jedes Element im Array:
+
+ Für { id: 1, name: 'Booking A' } ist b => b != booking true, weil Booking A nicht Booking B ist. Also wird Booking A in das neue Array aufgenommen.
+ Für { id: 2, name: 'Booking B' } ist b => b != booking false, weil Booking B genau das ist, was wir löschen wollen. Also wird Booking B nicht in das neue Array aufgenommen.
+ Für { id: 3, name: 'Booking C' } ist b => b != booking wieder true, weil Booking C nicht Booking B ist. Also wird Booking C in das neue Array aufgenommen.
