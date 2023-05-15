@@ -6,44 +6,50 @@
         <form>
 
             <div class="row mb-2">
+
+                <!-- name -->
+                <div class="col">
+                    <label class="form-label">Guest Name</label>
+                    <input type="text" [(ngModel)]="booking.name" name="name" class="form-control">
+
+                </div>
+                
                 <!-- Id -->
                 <div class="col">
                     <label class="form-label">Id</label>
                     <input type="number" [(ngModel)]="booking.id" name="id" class="form-control">
                 </div>
-        
+
                 <!-- Roomnumber -->
                 <div class="col">
                     <label class="form-label">Room Number</label>
                     <input type="number" [(ngModel)]="booking.roomNumber" name="roomNumber" class="form-control">
-        
+
                 </div>
+
             </div>
-        
+
+            <!-- <div class="row mb-2">
+
+            </div> -->
+
             <div class="row mb-2">
-                <!-- name -->
-                <div class="col-6">
-                    <label class="form-label">Guest Name</label>
-                    <input type="text" [(ngModel)]="booking.name" name="name" class="form-control">
-        
-                </div>
-            </div>
-        
-            <div class="row mb-2">
-        
-        
+
+
                 <!-- StartDate -->
                 <div class="col">
                     <label class="form-label">Start Date</label>
-                    <input type="date" [value]="booking.startDate | date: 'yyyy-MM-dd'" (input)="dateChanged($event, true)" class="form-control">
-               </div>
-        
-               <!-- EndDate -->
+                    <input type="date" [value]="booking.startDate | date: 'yyyy-MM-dd'"
+                        (input)="dateChanged($event, true)" class="form-control">
+                </div>
+
+                <!-- EndDate -->
                 <div class="col">
                     <label class="form-label">End Date</label>
-                    <input type="date" [value]="booking.endDate | date: 'yyyy-MM-dd'" (input)="dateChanged($event, false)" class="form-control">
+                    <input type="date" [value]="booking.endDate | date: 'yyyy-MM-dd'"
+                        (input)="dateChanged($event, false)" class="form-control">
                 </div>
-        
+
             </div>
         </form>
     </div>
@@ -51,4 +57,3 @@
         <button (click)="save()" class="btn btn-primary">Submit</button>
     </div>
 </div>
-

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { EventSignUpComponent } from './event-sign-up/event-sign-up.component';
 
 
 
@@ -15,7 +16,8 @@ import { InMemoryDataService } from './in-memory-data.service';
   declarations: [
     AppComponent,
     BookingsComponent,
-    CreateBookingComponent
+    CreateBookingComponent,
+    EventSignUpComponent
   ],
   imports: [
     BrowserModule,
