@@ -10,6 +10,5 @@ export class EventSignUpComponent {
   singUpMail : string = '';
 
   onSubmit() : void{
-    console.log('Form sent');
   }
 }
