@@ -14,12 +14,22 @@ export class BookingsComponent implements OnInit {
 
   constructor(private bookingService: BookingService) { }
 
+
+  /**
+   * This method is used to save the API in the bookings-variable 
+   */
   ngOnInit() {
     this.bookingService.getBookings().subscribe((result) => {
       this.bookings = result;
     });
   }
 
+
+  /**
+   * This code is used to delete one booking through the Method of the booking Service
+   * 
+   * @param booking is the Element which should be deleted
+   */
   deleteBooking(booking: Booking): void {
     this.bookingService.deleteBooking(booking).subscribe();
     this.bookings = this.bookings.filter(b => b != booking);
