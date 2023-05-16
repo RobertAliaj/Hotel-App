@@ -3,6 +3,7 @@ import { Booking } from '../booking';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { BookingService } from '../booking.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 
 
@@ -17,7 +18,8 @@ export class CreateBookingComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private bookingService: BookingService
+    private bookingService: BookingService,
+    private formBuilder: FormBuilder
   ) { }
 
   booking: Booking = {
@@ -27,6 +29,16 @@ export class CreateBookingComponent implements OnInit {
     startDate: new Date(),
     endDate: new Date()
   }
+
+
+  bookingForm = this.formBuilder.group({
+    id: ['', Validators.required],
+    name: ['', Validators.required],
+    roomNumber: ['', Validators.required],
+    startDate: ['', Validators.required],
+    endDate: ['', Validators.required]
+  });
+
 
   ngOnInit() {
 

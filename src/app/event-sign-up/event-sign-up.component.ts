@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class EventSignUpComponent {
 
+  singUpMail : string = '';
+
+  onSubmit() : void{
+    console.log('Form sent');
+  }
 }

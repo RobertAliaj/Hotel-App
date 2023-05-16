@@ -1,1 +1,42 @@
-<p>event-sign-up works!</p>
+<form #formSignUp="ngForm">
+    <div class="card bg-dark text-white" style="--bs-bg-opacity: .8;">
+
+        <div class="card-header">
+            <h5>Event Benachrichtigung</h5>
+        </div>
+
+        <div class="card-body">
+            <div class="row mb-2">
+                
+                <div class="col">
+                    <input #inputMail="ngModel" minlength=8 email name="singUpMail" [(ngModel)]="singUpMail" required
+                        class="form-control" placeholder="Bitte Email eintragen">
+                </div>
+            
+            </div>
+
+            <div *ngIf="inputMail.invalid && (inputMail.touched || inputMail.dirty)" class="row mb-2">
+                <div class="col">
+                    <div *ngIf="inputMail.errors?.['required']" class="alert alert-danger">
+                        Etwas ist schiefgelaufen
+                    </div>
+
+                    <div *ngIf="inputMail.errors?.['minlength']" class="alert alert-danger">
+                        Es sind mindestens 8 Zeichen notwendig.
+                    </div>
+
+                    <div *ngIf="inputMail.errors?.['email'] && !inputMail.hasError('minlength')" class="alert alert-danger">
+                        Das ist keine gültige Email Adresse.
+                    </div>
+
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="card-footer">
+            <button [disabled]="formSignUp.invalid" (click)="onSubmit()" class="btn btn-primary">Absenden</button>
+        </div>
+    </div>
+
+</form>
