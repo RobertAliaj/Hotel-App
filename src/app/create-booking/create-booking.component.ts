@@ -56,7 +56,6 @@ export class CreateBookingComponent implements OnInit {
   });
 
 
-
   /**
   * @method ngOnInit Lifecycle hook that is called after data-bound properties are initialized
   */

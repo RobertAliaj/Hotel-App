@@ -55,7 +55,6 @@ export class BookingService {
   }
 
 
-
   /**
   * This method communicates with the server to add a new booking or update an existing one.
   * It sends a POST request to the booking API with the booking object to be added or updated.
